@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boggle Game</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <h1 id="countdown"></h1>
+    <form action="/new_board">
+        <button>New Game!
+        </button>
+    </form>
+    <h2 id="high-score"></h2>
+    <h2 id="score"></h2>
+    <h3 id="valid-msg"></h3>
+    <table id=" board">
+        <th id="b1">B</th>
+        <th id="b2">o</th>
+        <th id="b3">g</th>
+        <th id="b4">g</th>
+        <th id="b5">l</th>
+        <th id="b6">e</th>
+
+
+        {%for row in board %}
+        <tr class="row">
+            {%for letter in row %}
+            <td class="letter">{{letter}}</td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+    <form method="POST" id="word-form">
+        <label for="guess" id="guess-label"></label>
+        <input type="text" name="guess" id="guess">
+        <button id="submit">Submit</button>
+    </form>
+    <div id="side list">
+        <h4 id="list-head">Guessed</h4>
+        <ul id="good-list">
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
